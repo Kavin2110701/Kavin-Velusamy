@@ -69,9 +69,31 @@
 
 
 
+# Class
+
+# A blueprint to create objects.
+
+# Object
+
+# An instance of a class. When you create a specific car using the Car blueprint, you have an object.
+# my_car = Car()  # my_car is an object of class Car
+# my_car.drive()  # Calls the drive method of the object
 
 
-# 1 .round the no
+# Method
+
+# A function defined inside a class that describes the behaviors of an object.
+# class Dog:
+#     def bark(self):  # bark() is a method
+#         print("Woof!")
+
+
+
+
+
+
+
+# 1 .round the number
 
 
 # import math
@@ -79,7 +101,6 @@
 #     return math.floor(n+0.5)
 #     # print(round(n))
 # print(round_no(50.4))
-
 
 
 
@@ -202,7 +223,7 @@
 
 
 # n=[34,56,98,21,12,4,5,42]
-# numbers  =sorted(n)
+# numbers =sorted(n)
 # # n.sort()
 
 # # n.sort(reverse=True)
@@ -324,7 +345,7 @@
 # n = 1234
 # print(digits(n))
 
-
+    
 
 
 # n = 1234
@@ -425,7 +446,6 @@
 
 
 
-
 # def move_zeros_to_end(A):
 #     result = []
 #     zero_count = 0
@@ -441,6 +461,17 @@
 # print(move_zeros_to_end(A1))  # Output: [1, 2, 3, 0]
 # print(move_zeros_to_end(A2))  # Output: [1, 0, 0, 0]
 
+
+
+# Sorting 
+
+# numbers = [5, 2, 9, 1, 5, 6]
+# sorted_numbers = sorted(numbers)
+# print("Original List:", numbers)
+# print("Sorted List (Ascending):", sorted_numbers)
+
+# sorted_numbers_desc = sorted(numbers, reverse=True)
+# print("Sorted List (Descending):", sorted_numbers_desc)
 
 
 
@@ -478,38 +509,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # import math
 # def countDigits(n):
 #     cnt = int(math.log10(n) + 1)
@@ -521,6 +520,58 @@
 #     print("N:", N)
 #     digits = countDigits(N)
 #     print("Number of Digits in N:", digits)
+
+
+
+
+# Decorator
+# without modifying the function it will modify the behaviour of the function 
+
+# def decorator_function(original_function):
+#     def wrapper_function():
+#         print("Before the original function is called")
+#         original_function()
+#         print("After the original function is called")
+#     return wrapper_function
+
+# @decorator_function
+# def say_hello():
+#     print("Hello!")
+
+# # say_hello=decorator_function(say_hello)
+# say_hello()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                 
                             
 
@@ -560,7 +611,7 @@
 #         return f"Hello, {self.name}!"
 # p = Person("Alice")
 # print(p.greet())
-
+        
 
 
 # numbers = input("Enter 4 numbers without spaces: ")
@@ -620,6 +671,29 @@
 # popitem -remove all the details
 # clear
 # thisdict.update({"color": "black"})
+
+# function
+# the function is calling directly a function name and Functions are defined using the def keyword 
+
+# def add(a, b):
+#     return a + b
+# result = add(2, 3)  # Calling a function
+
+
+
+# Method
+#  A method is a function that is defined within a class and is associated with an instance of that class.
+
+# class Calculator:
+#     def add(self, a, b):
+#         return a + b
+# calc = Calculator()  # Creating an object of Calculator
+# result = calc.add(2, 3)  # Calling a method on an object
+
+
+
+
+
 
 # i=0
 # j=0

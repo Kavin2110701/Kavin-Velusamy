@@ -55,8 +55,9 @@
 
 
 # Encapsulation: Encapsulation is the bundling of data (attributes) and methods (functions) 
-# that operate on that data within a single class. It restricts direct access to some of the object's 
-# components, providing controlled access through methods.
+# that operate on that data within a single class. 
+# It restricts direct access to some of the object's components, providing controlled access through methods.
+# It is used to restrict access to methods and variables.
 
 # (class,methods,attributes)protect the data or hide the data ex:WATER BOTTLE(inside the water is protected)
 
@@ -75,33 +76,38 @@
 
 
 # Polymorphism:
+# two words "poly" and "morphs". Poly means many, and morph means shape.
+
 # Polymorphism allows different classes to respond to the same method call in different ways
 # One person have many faces,home,college,friends
 
 # Polymorphism means "many forms." In OOP, it allows objects of different classes to be treated as 
 # objects of a common superclass. It also allows methods to be overridden 
-# or have multiple forms (like method overloading or method overriding).
+# or have multiple forms (like method overloading or method overriding).u
 # different forms in same method  or function or class
 
-# class overloading:
-#    def add(a,b,c):   # same name but different parameter
-#       return (a+b+c)
-#    def add(a,b):
-#       return(a+b)
-# print(overloading(1,2))
-# print(overloading(1,2,3))
+#overloading:
+# Having multiple methods in the same class with the same name but different parameters
 
-# class overriding:
-#    def dog():
-#       print("sound")
-#    def dog():
-#       print("Some sound")
-   
-#    class bike:
-#       def Enginestarts():
-#          pass         
-#    class car(bike):
-#       pass
+# def add(a, b=0, c=0):
+#     return a + b + c
+# print(add(2))        # Outputs 2
+# print(add(2, 3))     # Outputs 5
+# print(add(2, 3, 4))  # Outputs 9
+
+
+# overriding:
+
+# class Animal:
+#     def speak(self):
+#         print("Animal speaks")
+
+# class Dog(Animal):
+#     def speak(self):  # This method overrides Animal's speak()
+#         print("Dog barks")
+# d = Dog()
+# d.speak()  # Outputs: "Dog barks"
+
 
 
 
@@ -285,13 +291,12 @@
 
 
 # def factorial(n):
-#     if n == 0 or n == 1:
-#         return 1
-#     else:
-#         return n * factorial(n - 1)
-# n = 5
-# result = factorial(n)
-# print(f"The factorial of {n} is {result}")
+#     result = 1
+#     for i in range(1,n+1):
+#         result *=i
+#     return result
+# n=5
+# print(factorial(n))
 
 
 
@@ -688,7 +693,8 @@
 
 
 
-
+# cAlass
+# collection of objects.
 
  
 
