@@ -73,6 +73,7 @@
 
 # A blueprint to create objects.
 
+
 # Object
 
 # An instance of a class. When you create a specific car using the Car blueprint, you have an object.
@@ -451,9 +452,9 @@
 #     zero_count = 0
 #     for num in A:
 #         if num == 0:
-#             zero_count += 1  # Count the zeros
+#             zero_count += 1
 #         else:
-#             result.append(num)  # Append non-zero elements to result
+#             result.append(num) 
 #     result.extend([0] * zero_count)
 #     return result
 # A1 = [0, 1, 2, 3]
@@ -542,38 +543,921 @@
 # say_hello()
 
 
+# l=[0,1,2,3,9,23,4,5,6,7,8]
+# l=l[5::]
+# print(l)  
+
+
+
+
+# # Class definition
+# class Dog:
+#     # Attributes: name, breed, and age
+#     def __init__(self, name, breed, age):
+#         self.name = name       # Instance attribute
+#         self.breed = breed     # Instance attribute
+#         self.age = age         # Instance attribute
+
+#     # Behavior: method to make the dog bark
+#     def bark(self):
+#         return f"{self.name} says: Woof! Woof!"
+
+#     # Behavior: method to calculate dog's age in human years
+#     def age_in_human_years(self):
+#         return self.age * 7
+
+# # Create objects (instances) of the Dog class
+# dog1 = Dog("Buddy", "Golden Retriever", 4)
+# dog2 = Dog("Milo", "Beagle", 3)
+
+# # Access attributes and call methods (behaviors)
+# print(f"Dog 1: {dog1.name}, Breed: {dog1.breed}, Age: {dog1.age}")
+# print(dog1.bark())
+# print(f"{dog1.name}'s age in human years: {dog1.age_in_human_years()}")
+
+# print("\n")
+
+# print(f"Dog 2: {dog2.name}, Breed: {dog2.breed}, Age: {dog2.age}")
+# print(dog2.bark())
+# print(f"{dog2.name}'s age in human years: {dog2.age_in_human_years()}")
+
+
+# # Class:
+
+# # The Dog class is a blueprint for creating dog objects.
+# # It defines the attributes and behaviors.
+
+# # Attributes:
+
+# # name, breed, and age are instance attributes of the Dog class.
+# # They store data specific to each dog.
+
+# # Behavior:
+
+# # The bark() method defines what the dog does (barking).
+# # The age_in_human_years() method calculates the dog's age in human years.
+
+# # Objects:
+
+# # dog1 and dog2 are instances (objects) of the Dog class.
+# # Each object has its own attributes and can perform behaviors.
+
+
+
+
+# Aggregation:
+
+# A Teacher is associated with a Subject. The subject can exist even if the teacher leaves the school.
+
+# Composition:
+
+# A Classroom is composed of Students. If the classroom is deleted, the students in that classroom no longer belong to it.
+
+
+
+# # Abstruct base class work
+
+# An abstract class is like a blueprint for other classes. It is used when you want to define a general structure 
+# or set of rules for other classes but don’t want anyone to create objects directly from it. Instead, other 
+# classes (called subclasses) inherit from the abstract class and provide their specific implementations.
+
+# from abc import ABC, abstractmethod
+
+# class Polygon(ABC):
+#     @abstractmethod
+#     def noofsides(self):
+#         pass
+    
+# class Triangle(Polygon):
+
+#     # overriding abstract method
+#     def noofsides(self):
+#         print("I have 3 sides")
+
+# class Pentagon(Polygon):
+
+#     # overriding abstract method
+#     def noofsides(self):
+#         print("I have 5 sides")
+
+# class Hexagon(Polygon):
+
+#     # overriding abstract method
+#     def noofsides(self):
+#         print("I have 6 sides")
+
+# class Quadrilateral(Polygon):
+
+#     # overriding abstract method
+#     def noofsides(self):
+#         print("I have 4 sides")
+
+# # Driver code
+# R = Triangle()
+# R.noofsides()
+
+# K = Quadrilateral()
+# K.noofsides()
+
+# R = Pentagon()
+# R.noofsides()
+
+# K = Hexagon()
+# K.noofsides()
+
+
+
+# Raising Exceptions
+
+# def divide(a, b):
+#     if b == 0:
+#         raise ValueError("Denominator cannot be zero!")
+#     return a / b
+# try:
+#     result = divide(10, 0)
+# except ValueError as e:
+#     print(e)  # Output: Denominator cannot be zero!
+
+
+# Handling Exceptions
+# Use try, except, else, and finally blocks to handle exceptions gracefully.
+
+# try:
+#     num = int(input("Enter a number: "))
+#     result = 10 / num
+# except ZeroDivisionError:
+#     print("Cannot divide by zero!")
+# except ValueError:
+#     print("Invalid input! Please enter a number.")
+# else:
+#     print("Result:", result)
+# finally:
+#     print("Execution completed.")
+
+
+
+
+# File Handling with Exceptions
+# Imagine an application that processes files. The program should handle scenarios
+# like missing files or unreadable content.
+
+# def read_file(file_name):
+#     try:
+#         with open("text.txt", 'r') as file:
+#             content = file.read()
+#             print(content)
+#     except FileNotFoundError:
+#         print(f"Error: The file '{file_name}' does not exist.")
+#     except PermissionError:
+#         print(f"Error: Permission denied for file '{file_name}'.")
+#     except Exception as e:
+#         print(f"An unexpected error occurred: {e}")
+#     finally:
+#         print("File processing complete.")
+
+# read_file("nonexistent.txt")
+
+
+
+# # String Formatting
+
+# # String formatting helps in inserting variables or expressions into strings.
+
+# # Using f-strings
+# name = "Alice"
+# age = 25
+# print(f"My name is {name} and I am {age} years old.")
+
+# # Using format() method
+# print("My name is {} and I am {} years old.".format(name, age))
+
+# # Old-style formatting
+# print("My name is %s and I am %d years old." % (name, age))
+
+
+
+
+# l=[1,2,5,6,9,0,12,45,67,70]
+# print (l[5::])
+
+
+# def remove_first_five(numbers):
+#     try:
+#         if len(numbers) < 5:
+#             raise IndexError("The list has less than 5 elements to remove.")
+#         return numbers[5:]
+#     except IndexError as e:
+#         print(f"Error: {e}")
+#         return []
+# numbers = []  
+# updated_numbers = remove_first_five(numbers)
+# print(updated_numbers)
+
+
+
+# Regular Expression
+
+# import re
+# string = "Hello, World!"
+# pattern = r"^Hello"
+
+# if re.match(pattern, string):
+#     print("Match found!")
+# else:
+#     print("No match.")
+
+
+
+# import re
+# text = "My phone number is 9876543210"
+# pattern = r"\d"
+
+# new_text = re.sub(pattern, "X", text)
+# print(new_text)
+
+
+
+# import re
+# def validate_password(password):
+#     pattern = r"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$"
+#     if re.match(pattern, password):
+#         return "Valid Password"
+#     else:
+#         return "Invalid Password"
+# print(validate_password("Strong1Pass"))
+# print(validate_password("weakpass"))
+
+
+
+# JSON
+
+# import json
+# # Serialize a dictionary to JSON
+# data = {"name": "Alice", "age": 25}
+# json_data = json.dumps(data)  # Serialize
+# print(json_data)  # Output: '{"name": "Alice", "age": 25}'
+
+# # Deserialize JSON to a dictionary
+# parsed_data = json.loads(json_data)
+# print(parsed_data)  # Output: {'name': 'Alice', 'age': 25}
+
+
+# YAML
+
+# import yaml
+# # Serialize a dictionary to YAML
+# data = {"name": "Alice", "age": 25}
+# yaml_data = yaml.dump(data)
+# print(yaml_data)
+
+# # Deserialize YAML back to a dictionary
+# parsed_data = yaml.safe_load(yaml_data)
+# print(parsed_data)
+
+# XML
+
+# import xml.etree.ElementTree as ET
+# # Serialize to XML
+# data = ET.Element("person")
+# ET.SubElement(data, "name").text = "Alice"
+# ET.SubElement(data, "age").text = "25"
+
+# xml_data = ET.tostring(data, encoding="unicode")
+# print(xml_data)
+
+# # Parse XML
+# root = ET.fromstring(xml_data)
+# for child in root:
+#     print(f"{child.tag}: {child.text}")
 
 
 
 
 
 
+# Coroutines
+
+# Coroutines are functions that can pause and resume execution, used in asynchronous programming.
+
+# def greet():
+#     name = yield "Waiting for input"  # Initial yield
+#     print(f"Hello, {name}!")
+#     yield "Greeting complete"  # Keeps coroutine active for further interaction
+
+# coroutine = greet()
+# print(next(coroutine))  # Output: Waiting for input
+# print(coroutine.send("Alice"))  # Output: Hello, Alice! \n Greeting complete
+
+# try:
+#     coroutine.send("Bob")  # No further yields; will raise StopIteration
+# except StopIteration:
+#     print("Coroutine has finished execution.")
+ 
+ 
+#  Pattern
+
+# Creational --Abstruct,factory method,singleton
+# structural --Adaptor,flyweight,Facady,Composite
+# Behaviour --observer,state,startegy,Template,Command
+
+
+# Singleton 
+# It allows to create a one instance of the class 
+
+# class Singleton:
+#     _instance = None
+
+#     def __new__(cls, *args, **kwargs):
+#         if cls._instance is None:
+#             cls._instance = super().__new__(cls)
+#         return cls._instance
+
+# obj1 = Singleton()
+# obj2 = Singleton()
+# print(obj1 is obj2)  # Output: True
+
+
+
+# # Observer 
+
+# # The observer method is a Behavioral design Pattern which allows you to define or create a subscription 
+# # mechanism to send the notification to the multiple objects about any new event that happens to the object 
+# # that they are observing. The subject is basically observed by multiple objects. The subject needs to be 
+# # monitored and whenever there is a change in the subject, the observers are being notified about the change.
+# # This pattern defines one to Many dependencies between objects so that one object changes state, all of its
+# # dependents are notified and updated automatically.
+
+# class Subject:
+#     """Represents what is being observed"""
+    
+#     def __init__(self):
+#         """create an empty observer list"""
+#         self._observers = []
+
+#     def notify(self, modifier = None):
+#         """Alert the observers"""
+#         for observer in self._observers:
+#             if modifier != observer:
+#                 observer.update(self)
+
+#     def attach(self, observer):
+#         """If the observer is not in the list,
+#         append it into the list"""
+#         if observer not in self._observers:
+#             self._observers.append(observer)
+
+#     def detach(self, observer):
+#         """Remove the observer from the observer list"""
+#         try:
+#             self._observers.remove(observer)
+#         except ValueError:
+#             pass
+
+# class Data(Subject):
+#     """monitor the object"""
+#     def __init__(self, name =''):
+#         Subject.__init__(self)
+#         self.name = name
+#         self._data = 0
+
+#     @property
+#     def data(self):
+#         return self._data
+
+#     @data.setter
+#     def data(self, value):
+#         self._data = value
+#         self.notify()
+
+# class HexViewer:
+#     """updates the Hexviewer"""
+#     def update(self, subject):
+#         print('HexViewer: Subject {} has data 0x{:x}'.format(subject.name, subject.data))
+
+# class OctalViewer:
+#     """updates the Octal viewer"""
+#     def update(self, subject):
+#         print('OctalViewer: Subject' + str(subject.name) + 'has data '+str(oct(subject.data)))
+
+# class DecimalViewer:
+#     """updates the Decimal viewer"""
+
+#     def update(self, subject):
+#         print('DecimalViewer: Subject % s has data % d' % (subject.name, subject.data))
+
+# if __name__ == "__main__":
+
+#     """provide the data"""
+
+#     obj1 = Data('Data 1')
+#     obj2 = Data('Data 2')
+
+#     view1 = DecimalViewer()
+#     view2 = HexViewer()
+#     view3 = OctalViewer()
+
+#     obj1.attach(view1)
+#     obj1.attach(view2)
+#     obj1.attach(view3)
+
+#     obj2.attach(view1)
+#     obj2.attach(view2)
+#     obj2.attach(view3)
+
+#     obj1.data = 10
+#     obj2.data = 15
+
+
+
+# Template pattern
+
+# from abc import ABC, abstractmethod
+
+# # Abstract base class defining the template
+
+# class CakeBakingProcess(ABC):
+#     # Template method: defines the sequence of steps
+#     def bake_cake(self):
+#         self.prepare_ingredients()
+#         self.mix_ingredients()
+#         self.bake()
+#         self.decorate()
+
+#     # Steps with default implementations
+#     def prepare_ingredients(self):
+#         print("Gathering ingredients: flour, sugar, eggs, butter, and flavorings.")
+
+#     def mix_ingredients(self):
+#         print("Mixing ingredients together.")
+
+#     def bake(self):
+#         print("Baking the cake at 180°C for 30 minutes.")
+
+#     # Abstract step to be customized by subclasses
+#     @abstractmethod
+#     def decorate(self):
+#         pass
+
+# # Concrete class for Chocolate Cake
+# class ChocolateCake(CakeBakingProcess):
+#     def decorate(self):
+#         print("Decorating with chocolate frosting and sprinkles.")
+
+# # Concrete class for Vanilla Cake
+# class VanillaCake(CakeBakingProcess):
+#     def decorate(self):
+#         print("Decorating with vanilla frosting and fresh fruits.")
+
+# # Concrete class for Custom Cake
+# class CustomCake(CakeBakingProcess):
+#     def decorate(self):
+#         print("Decorating with custom designs provided by the customer.")
+
+# # Client code
+# if __name__ == "__main__":
+#     print("Chocolate Cake Process:")
+#     chocolate_cake = ChocolateCake()
+#     chocolate_cake.bake_cake()
+
+#     print("\nVanilla Cake Process:")
+#     vanilla_cake = VanillaCake()
+#     vanilla_cake.bake_cake()
+
+#     print("\nCustom Cake Process:")
+#     custom_cake = CustomCake()
+#     custom_cake.bake_cake()
+
+
+
+# Strategy Pattern
+
+# The Strategy Pattern defines a family of algorithms, encapsulates each one, and makes them interchangeable.
+# It allows the algorithm to vary independently from the clients that use it.
+
+
+# from abc import ABC, abstractmethod
+
+# # Strategy Interface
+# class PaymentStrategy(ABC):
+#     @abstractmethod
+#     def pay(self, amount):
+#         pass
+
+# # Concrete Strategies
+# class CreditCardPayment(PaymentStrategy):
+#     def pay(self, amount):
+#         print(f"Paid {amount} using Credit Card.")
+
+# class PayPalPayment(PaymentStrategy):
+#     def pay(self, amount):
+#         print(f"Paid {amount} using PayPal.")
+
+# class CashPayment(PaymentStrategy):
+#     def pay(self, amount):
+#         print(f"Paid {amount} using Cash.")
+
+# # Context
+# class ShoppingCart:
+#     def __init__(self, payment_strategy: PaymentStrategy):
+#         self.payment_strategy = payment_strategy
+
+#     def checkout(self, amount):
+#         self.payment_strategy.pay(amount)
+
+# # Client Code
+# if __name__ == "__main__":
+#     print("Paying with Credit Card:")
+#     cart = ShoppingCart(CreditCardPayment())
+#     cart.checkout(100)
+
+#     print("\nPaying with PayPal:")
+#     cart = ShoppingCart(PayPalPayment())
+#     cart.checkout(200)
+
+#     print("\nPaying with Cash:")
+#     cart = ShoppingCart(CashPayment())
+#     cart.checkout(50)
+
+
+
+# State pattern
+
+# The State Pattern allows an object to alter its behavior when its internal state changes. 
+# It appears as though the object changes its class.
+
+# class TrafficLightState:
+#     def next(self, light):
+#         raise NotImplementedError("Subclasses must implement this method.")
+
+#     def display(self):
+#         raise NotImplementedError("Subclasses must implement this method.")
+
+# # Concrete States
+# class RedLight(TrafficLightState):
+#     def next(self, light):
+#         light.state = GreenLight()
+
+#     def display(self):
+#         print("Red Light - STOP!")
+
+# class GreenLight(TrafficLightState):
+#     def next(self, light):
+#         light.state = YellowLight()
+
+#     def display(self):
+#         print("Green Light - GO!")
+
+# class YellowLight(TrafficLightState):
+#     def next(self, light):
+#         light.state = RedLight()
+
+#     def display(self):
+#         print("Yellow Light - SLOW DOWN!")
+
+# # Context
+# class TrafficLight:
+#     def __init__(self):
+#         self.state = RedLight()
+
+#     def change(self):
+#         self.state.next(self)
+
+#     def show(self):
+#         self.state.display()
+
+# # Client Code
+# traffic_light = TrafficLight()
+
+# for _ in range(5):
+#     traffic_light.show()
+#     traffic_light.change()
 
 
 
 
 
 
+# Facade 
+
+# The Facade Pattern is like a universal remote control for a TV system.
+# It provides a simple interface to control many complex subsystems.
+
+# class WaterPump:
+#     def fill(self):
+#         print("Filling water into the drum.")
+
+#     def drain(self):
+#         print("Draining water from the drum.")
+
+# class Drum:
+#     def rotate(self, speed):
+#         if speed == "slow":
+#             print("Drum is rotating slowly for washing.")
+#         elif speed == "fast":
+#             print("Drum is rotating fast for spinning.")
+
+# class Heater:
+#     def heat_water(self, temperature):
+#         print(f"Heating water to {temperature}°C.")
+
+# class DetergentDispenser:
+#     def add_detergent(self):
+#         print("Adding detergent to the water.")
+
+# # Facade
+# class WashingMachineFacade:
+#     def __init__(self):
+#         self.water_pump = WaterPump()
+#         self.drum = Drum()
+#         self.heater = Heater()
+#         self.detergent_dispenser = DetergentDispenser()
+
+#     def start_washing_cycle(self):
+#         print("Starting the washing cycle...")
+#         self.water_pump.fill()
+#         self.detergent_dispenser.add_detergent()
+#         self.heater.heat_water(40)
+#         self.drum.rotate("slow")
+#         print("Washing complete!")
+
+#     def start_rinsing_cycle(self):
+#         print("Starting the rinsing cycle...")
+#         self.water_pump.fill()
+#         self.drum.rotate("slow")
+#         self.water_pump.drain()
+#         print("Rinsing complete!")
+
+#     def start_spinning_cycle(self):
+#         print("Starting the spinning cycle...")
+#         self.drum.rotate("fast")
+#         print("Spinning complete!")
+
+# # Client Code
+# if __name__ == "__main__":
+#     washing_machine = WashingMachineFacade()
+
+#     washing_machine.start_washing_cycle()
+#     washing_machine.start_rinsing_cycle()
+#     washing_machine.start_spinning_cycle()
+
+
+
+# #  Adapter Pattern
+
+# # The Adapter Pattern acts as a bridge between two incompatible interfaces.
+# # It allows classes with incompatible interfaces to work together by converting one interface into another.
+
+# # Dog - Cycle
+# # human - Truck
+# # car - Car
+
+# class MotorCycle:
+#     """Class for MotorCycle"""
+
+#     def __init__(self):
+#         self.name = "MotorCycle"
+
+#     def TwoWheeler(self):
+#         return "TwoWheeler"
+
+
+# class Truck:
+#     """Class for Truck"""
+
+#     def __init__(self):
+#         self.name = "Truck"
+
+#     def EightWheeler(self):
+#         return "EightWheeler"
+
+
+# class Car:
+#     """Class for Car"""
+
+#     def __init__(self):
+#         self.name = "Car"
+
+#     def FourWheeler(self):
+#         return "FourWheeler"
+
+
+# class Adapter:
+#     """
+#     Adapts an object by replacing methods.
+#     Usage:
+#     motorCycle = MotorCycle()
+#     motorCycle = Adapter(motorCycle, wheels = motorCycle.TwoWheeler)
+#     """
+
+#     def __init__(self, obj, **adapted_methods):
+#         """We set the adapted methods in the object's dict"""
+#         self.obj = obj
+#         self.__dict__.update(adapted_methods)
+
+#     def __getattr__(self, attr):
+#         """All non-adapted calls are passed to the object"""
+#         return getattr(self.obj, attr)
+
+#     def original_dict(self):
+#         """Print original object dict"""
+#         return self.obj.__dict__
+
+
+# # main method
+# if __name__ == "__main__":
+#     """list to store objects"""
+#     objects = []
+
+#     motorCycle = MotorCycle()
+#     objects.append(Adapter(motorCycle, wheels=motorCycle.TwoWheeler))
+
+#     truck = Truck()
+#     objects.append(Adapter(truck, wheels=truck.EightWheeler))
+
+#     car = Car()
+#     objects.append(Adapter(car, wheels=car.FourWheeler))
+
+#     for obj in objects:
+#         print("A {0} is a {1} vehicle".format(obj.name, obj.wheels()))
 
 
 
 
+# Flyweight Pattern
+
+# Flyweight method is a Structural Design Pattern that focus on minimizing the number of objects that are required
+# by the program at the run-time.Basically, it creates a Flyweight object which is shared by multiple contexts. 
 
 
 
+# Command pattern
+
+# The Command Pattern encapsulates a request as an object, allowing you to parameterize objects with operations,
+# delay execution, or support undoable operations.
+# Example: Remote Control
+
+# class Command:
+#     def execute(self):
+#         pass
+# # Concrete Commands
+# class LightOnCommand(Command):
+#     def __init__(self, light):
+#         self.light = light
+#     def execute(self):
+#         self.light.turn_on()
+
+# class LightOffCommand(Command):
+#     def __init__(self, light):
+#         self.light = light
+#     def execute(self):
+#         self.light.turn_off()
+
+# # Receiver
+# class Light:
+#     def turn_on(self):
+#         print("Light is ON.")
+#     def turn_off(self):
+#         print("Light is OFF.")
+
+# # Invoker
+# class RemoteControl:
+#     def set_command(self, command):
+#         self.command = command
+#     def press_button(self):
+#         self.command.execute()
+
+# # Client Code
+# if __name__ == "__main__":
+#     light = Light()
+#     remote = RemoteControl()
+#     remote.set_command(LightOnCommand(light))
+#     remote.press_button()
+#     remote.set_command(LightOffCommand(light))
+#     remote.press_button()
+
+
+# # Abstruct factory
+
+
+# Composite 
 
 
 
+# UnitTesting
+
+# Unit testing involves testing individual units of a program (e.g., a method or function).
+# It ensures each piece works in isolation.
+
+# import unittes
+# class Calculator:
+#     def add(self, a, b):
+#         return a + b
+
+# # Test case
+# class TestCalculator(unittest.TestCase):
+#     def test_add(self):
+#         calc = Calculator()
+#         self.assertEqual(calc.add(2, 3), 5)
+
+# if __name__ == "__main__":
+#     unittest.main()
 
 
 
+# Pytest
+
+# Pytest is a popular Python library for simple and scalable testing.
+
+# def multiply(a, b):
+#     return a * b
+# # Test case
+# def test_multiply():
+#     assert multiply(3, 4) == 12
 
 
 
+# Concurrency
+# Concurrency means executing multiple tasks at the same time. This can be done using threads, multiprocessing, or async I/O.
 
+# Threads
+# Threads allow you to run parts of a program concurrently. They share memory but can execute independently.
+
+# import threading
+# def print_numbers():
+#     for i in range(5):
+#         print(f"Number: {i}")
+# def print_letters():
+#     for char in 'abcde':
+#         print(f"Letter: {char}")
+
+# Create threads
+# thread1 = threading.Thread(target=print_numbers)
+# thread2 = threading.Thread(target=print_letters)
+# # Start threads
+# thread1.start()
+# thread2.start()
+# # Wait for threads to finish
+# thread1.join()
+# thread2.join()
+
+
+# Multiprocessing
+
+# Multiprocessing runs tasks in separate processes with independent memory.
+
+# import multiprocessing
+# def task(name):
+#     print(f"Task {name} is running!")
+
+# if __name__ == "__main__":
+#     process1 = multiprocessing.Process(target=task, args=("A",))
+#     process2 = multiprocessing.Process(target=task, args=("B",))
+#     process1.start()
+#     process2.start()
+#     process1.join()
+#     process2.join()
+    
+# Async I/O
+# Async I/O allows tasks to pause and resume, making it efficient for I/O-bound tasks like reading files or making network requests.
+
+# import asyncio
+# async def say_hello():
+#     print("Hello!")
+#     await asyncio.sleep(1)
+#     print("Hello again!")
+# async def main():
+#     await asyncio.gather(say_hello(), say_hello())
+
+# asyncio.run(main())
 
                                 
                             
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -622,7 +1506,6 @@
 #     l.append(int(digit))
 # print("Sum of the numbers:",total)
 # print("List of individual digits:",l)
-
 
 
 # x=2123

@@ -87,7 +87,7 @@
 # different forms in same method  or function or class
 
 #overloading:
-# Having multiple methods in the same class with the same name but different parameters
+# In a two class have a same methods in the same class but different parameters 
 
 # def add(a, b=0, c=0):
 #     return a + b + c
@@ -97,6 +97,7 @@
 
 
 # overriding:
+# In class A and B have a same method  with the same parameters is called overriding
 
 # class Animal:
 #     def speak(self):
