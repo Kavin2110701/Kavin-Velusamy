@@ -865,6 +865,7 @@
   // tasks can be performed without waiting for previous tasks to complete.
   // u can delegate the work to the other person
 // opposite to async -multiple thing happening
+// Some tasks can start and run in the background without blocking the main thread.
 
 // function findsum(n){
 //   let ans=0;
@@ -879,6 +880,12 @@
 // // calling a Asynchronous function
 // setTimeout(findSumTill100,1000)
 // console.log("Hello World")
+
+
+
+// console.log("Task 1");
+// setTimeout(() => console.log("Task 2"), 2000); // Runs after 2 seconds
+// console.log("Task 3");
 
 
 
@@ -945,7 +952,7 @@
 
 
 
-// /Promises (then)
+// /Promises (then) and (Catch) for error
 // Send data to one place to another 
 // If we use promises there is no call backs
 
@@ -962,6 +969,18 @@
 //   }) 
 // }
 // main()
+
+
+
+
+// const fetchData = new Promise((resolve, reject) => {
+//   setTimeout(() => resolve("Data loaded"), 2000);
+// });
+
+// fetchData
+//   .then((data) => console.log(data)) // Runs on success
+//   .catch((error) => console.log(error)); // Runs on error
+
 
 
 
@@ -1004,6 +1023,7 @@
 //     console.log(value)  //then
 // }
 // main()
+
 
 
 
@@ -1078,6 +1098,18 @@
 //   console.log("Hi There11")
 // }
 // main()
+
+
+
+// async function fetchData() {
+//   const data = await new Promise((resolve) => {
+//     setTimeout(() => resolve("Data loaded"), 2000);
+//   });
+//   console.log(data);
+// }
+
+// fetchData();
+
 
 
 
