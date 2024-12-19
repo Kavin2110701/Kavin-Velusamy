@@ -806,7 +806,7 @@
 // console.log(sumofcube(1,2))
 
 
-// in above we use same line repeating 763,768
+// in above we use same line repeating 
 // in below we use someofsomething function to remove repeating line
 
 
