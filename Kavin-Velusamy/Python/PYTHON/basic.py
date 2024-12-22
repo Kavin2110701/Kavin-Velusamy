@@ -523,7 +523,7 @@
 #     digits = countDigits(N)
 #     print("Number of Digits in N:", digits)
 
-
+ 
 
 
 # Decorator
@@ -699,6 +699,7 @@
 
 
 # File Handling with Exceptions
+
 # Imagine an application that processes files. The program should handle scenarios
 # like missing files or unreadable content.
 
@@ -721,7 +722,6 @@
 
 
 # # String Formatting
-
 # # String formatting helps in inserting variables or expressions into strings.
 
 # # Using f-strings
