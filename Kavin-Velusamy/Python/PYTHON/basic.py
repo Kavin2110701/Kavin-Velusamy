@@ -857,7 +857,7 @@
  
 #  Pattern
 
-# Creational --Abstruct,factory method,singleton
+# Creational --Abstruct factory method,singleton
 # structural --Adaptor,flyweight,Facady,Composite
 # Behaviour --observer,state,startegy,Template,Command
 
@@ -1028,7 +1028,7 @@
 #     custom_cake = CustomCake()
 #     custom_cake.bake_cake()
 
-
+ 
 
 # Strategy Pattern
 
@@ -1085,7 +1085,7 @@
 
 # The State Pattern allows an object to alter its behavior when its internal state changes. 
 # It appears as though the object changes its class.
-
+# or (playing or paused or stop)
 # class TrafficLightState:
 #     def next(self, light):
 #         raise NotImplementedError("Subclasses must implement this method.")
@@ -1142,7 +1142,7 @@
 
 # The Facade Pattern is like a universal remote control for a TV system.
 # It provides a simple interface to control many complex subsystems.
-
+ 
 # class WaterPump:
 #     def fill(self):
 #         print("Filling water into the drum.")
@@ -1290,6 +1290,42 @@
 # by the program at the run-time.Basically, it creates a Flyweight object which is shared by multiple contexts. 
 
 
+# Example: A Text Editor with Fonts
+# Imagine you are building a text editor. Each character on the screen needs information about its font, color, 
+# and size. Instead of creating a separate object for each character, you can reuse font information
+# (intrinsic state) and store unique information (extrinsic state) separately.
+
+# class Font:
+#     def __init__(self, family, size, color):
+#         self.family = family
+#         self.size = size
+#         self.color = color
+
+#     def render(self, text, position):
+#         print(f"Rendering '{text}' at {position} with font {self.family}, {self.size}pt, {self.color}")
+
+# # Flyweight Factory
+# class FontFactory:
+#     _fonts = {}
+
+#     @classmethod
+#     def get_font(cls, family, size, color):
+#         key = (family, size, color)
+#         if key not in cls._fonts:
+#             cls._fonts[key] = Font(family, size, color)
+#         return cls._fonts[key]
+
+# # Usage
+# factory = FontFactory()
+# font1 = factory.get_font("Arial", 12, "black")
+# font2 = factory.get_font("Arial", 12, "black")  # Reuses the same font object
+# font3 = factory.get_font("Times New Roman", 14, "blue")
+
+# font1.render("Hello", (10, 20))  # Output: Rendering 'Hello' at (10, 20) with font Arial, 12pt, black
+# font2.render("World", (30, 40))  # Output: Rendering 'World' at (30, 40) with font Arial, 12pt, black
+# font3.render("Python", (50, 60)) # Output: Rendering 'Python' at (50, 60) with font Times New
+
+
 
 # Command pattern
 
@@ -1297,51 +1333,233 @@
 # delay execution, or support undoable operations.
 # Example: Remote Control
 
+# # Receiver
+
+# class Light:
+#     def turn_on(self):
+#         print("The light is ON")
+
+#     def turn_off(self):
+#         print("The light is OFF")
+
+# # Command Interface
 # class Command:
 #     def execute(self):
 #         pass
+
 # # Concrete Commands
-# class LightOnCommand(Command):
+# class TurnOnCommand(Command):
 #     def __init__(self, light):
 #         self.light = light
+
 #     def execute(self):
 #         self.light.turn_on()
 
-# class LightOffCommand(Command):
+# class TurnOffCommand(Command):
 #     def __init__(self, light):
 #         self.light = light
+
 #     def execute(self):
 #         self.light.turn_off()
 
-# # Receiver
-# class Light:
-#     def turn_on(self):
-#         print("Light is ON.")
-#     def turn_off(self):
-#         print("Light is OFF.")
-
 # # Invoker
 # class RemoteControl:
+#     def __init__(self):
+#         self.command = None
+
 #     def set_command(self, command):
 #         self.command = command
+
 #     def press_button(self):
-#         self.command.execute()
+#         if self.command:
+#             self.command.execute()
 
-# # Client Code
-# if __name__ == "__main__":
-#     light = Light()
-#     remote = RemoteControl()
-#     remote.set_command(LightOnCommand(light))
-#     remote.press_button()
-#     remote.set_command(LightOffCommand(light))
-#     remote.press_button()
+# # Usage
+# light = Light()
+# turn_on = TurnOnCommand(light)
+# turn_off = TurnOffCommand(light)
+
+# remote = RemoteControl()
+# remote.set_command(turn_on)
+# remote.press_button()  # Output: The light is ON
+
+# remote.set_command(turn_off)
+# remote.press_button()  # Output: The light is OFF
 
 
-# # Abstruct factory
+
+# # Abstruct factory Pattern
+
+# The Abstract Factory Pattern provides an interface for creating families of related or dependent
+# objects without specifying their concrete classes.
+
+
+# class Button:
+#     def render(self):
+#         pass
+
+# class Checkbox:
+#     def render(self):
+#         pass
+
+# # Concrete Products
+# class WindowsButton(Button):
+#     def render(self):
+#         print("Rendering a Windows Button")
+
+# class MacOSButton(Button):
+#     def render(self):
+#         print("Rendering a MacOS Button")
+
+# class WindowsCheckbox(Checkbox):
+#     def render(self):
+#         print("Rendering a Windows Checkbox")
+
+# class MacOSCheckbox(Checkbox):
+#     def render(self):
+#         print("Rendering a MacOS Checkbox")
+
+# # Abstract Factory
+# class GUIFactory:
+#     def create_button(self):
+#         pass
+
+#     def create_checkbox(self):
+#         pass
+
+# # Concrete Factories
+# class WindowsFactory(GUIFactory):
+#     def create_button(self):
+#         return WindowsButton()
+
+#     def create_checkbox(self):
+#         return WindowsCheckbox()
+
+# class MacOSFactory(GUIFactory):
+#     def create_button(self):
+#         return MacOSButton()
+
+#     def create_checkbox(self):
+#         return MacOSCheckbox()
+
+# # Usage
+# def render_gui(factory):
+#     button = factory.create_button()
+#     checkbox = factory.create_checkbox()
+#     button.render()
+#     checkbox.render()
+
+# windows_factory = WindowsFactory()
+# mac_factory = MacOSFactory()
+
+# render_gui(windows_factory)  # Output: Rendering a Windows Button, Rendering a Windows Checkbox
+# render_gui(mac_factory)      # Output: Rendering a MacOS Button, Rendering a MacOS Checkbox
+
+
 
 
 # Composite 
 
+# The Composite Pattern is a structural design pattern that lets you treat individual objects and compositions 
+# of objects uniformly. It is ideal for representing tree-like structures.
+
+
+
+# class FileSystemComponent:
+#     def display(self):
+#         pass
+
+# # Leaf
+# class File(FileSystemComponent):
+#     def __init__(self, name):
+#         self.name = name
+
+#     def display(self):
+#         print(f"File: {self.name}")
+
+# # Composite
+# class Folder(FileSystemComponent):
+#     def __init__(self, name):
+#         self.name = name
+#         self.children = []
+
+#     def add(self, component):
+#         self.children.append(component)
+
+#     def remove(self, component):
+#         self.children.remove(component)
+
+#     def display(self):
+#         print(f"Folder: {self.name}")
+#         for child in self.children:
+#             child.display()
+
+# # Usage
+# root = Folder("Root")
+# file1 = File("File1.txt")
+# file2 = File("File2.txt")
+
+# subfolder = Folder("Subfolder")
+# subfolder.add(File("File3.txt"))
+
+# root.add(file1)
+# root.add(file2)
+# root.add(subfolder)
+
+# root.display()
+
+
+
+
+# Decorator pattern
+
+# The Decorator Pattern dynamically adds new behavior or responsibilities to an object without modifying its 
+# structure. It is a flexible alternative to subclassing for extending functionality.
+
+# Base Interface
+# class Coffee:
+#     def cost(self):
+#         pass
+
+#     def description(self):
+#         pass
+
+# # Concrete Component
+# class SimpleCoffee(Coffee):
+#     def cost(self):
+#         return 5
+
+#     def description(self):
+#         return "Simple Coffee"
+
+# # Decorators
+# class MilkDecorator(Coffee):
+#     def __init__(self, coffee):
+#         self.coffee = coffee
+
+#     def cost(self):
+#         return self.coffee.cost() + 2
+
+#     def description(self):
+#         return self.coffee.description() + ", Milk"
+
+# class SugarDecorator(Coffee):
+#     def __init__(self, coffee):
+#         self.coffee = coffee
+
+#     def cost(self):
+#         return self.coffee.cost() + 1
+
+#     def description(self):
+#         return self.coffee.description() + ", Sugar"
+
+# # Usage
+# coffee = SimpleCoffee()
+# coffee = MilkDecorator(coffee)
+# coffee = SugarDecorator(coffee)
+
+# print(coffee.description())  # Output: Simple Coffee, Milk, Sugar
+# print(coffee.cost())         # Output: 8
 
 
 # UnitTesting
