@@ -1086,6 +1086,7 @@
 # The State Pattern allows an object to alter its behavior when its internal state changes. 
 # It appears as though the object changes its class.
 # or (playing or paused or stop)
+
 # class TrafficLightState:
 #     def next(self, light):
 #         raise NotImplementedError("Subclasses must implement this method.")
@@ -1394,6 +1395,152 @@
 # objects without specifying their concrete classes.
 
 
+
+# Abstract Factory Pattern for Car Manufacturing System
+
+
+# class Engine:
+#     def specifications(self):
+#         pass
+
+# class Body:
+#     def specifications(self):
+#         pass
+
+# class Interior:
+#     def specifications(self):
+#         pass
+
+# # Concrete Product Classes for Sedan
+# class SedanEngine(Engine):
+#     def specifications(self):
+#         return "Sedan Engine: Fuel-efficient, 4-cylinder"
+
+# class SedanBody(Body):
+#     def specifications(self):
+#         return "Sedan Body: Aerodynamic, 4-door"
+
+# class SedanInterior(Interior):
+#     def specifications(self):
+#         return "Sedan Interior: Premium seats, Basic infotainment"
+
+# # Concrete Product Classes for SUV
+# class SUVEngine(Engine):
+#     def specifications(self):
+#         return "SUV Engine: Powerful, 6-cylinder"
+
+# class SUVBody(Body):
+#     def specifications(self):
+#         return "SUV Body: Rugged, 5-door"
+
+# class SUVInterior(Interior):
+#     def specifications(self):
+#         return "SUV Interior: Spacious, Advanced infotainment"
+
+# # Concrete Product Classes for Hatchback
+# class HatchbackEngine(Engine):
+#     def specifications(self):
+#         return "Hatchback Engine: Compact, 3-cylinder"
+
+# class HatchbackBody(Body):
+#     def specifications(self):
+#         return "Hatchback Body: Compact, 5-door"
+
+# class HatchbackInterior(Interior):
+#     def specifications(self):
+#         return "Hatchback Interior: Standard seats, Minimal infotainment"
+
+# # Abstract Factory
+# class CarFactory:
+#     def create_engine(self):
+#         pass
+
+#     def create_body(self):
+#         pass
+
+#     def create_interior(self):
+#         pass
+
+# # Concrete Factories for each Car Model
+# class SedanFactory(CarFactory):
+#     def create_engine(self):
+#         return SedanEngine()
+
+#     def create_body(self):
+#         return SedanBody()
+
+#     def create_interior(self):
+#         return SedanInterior()
+
+# class SUVFactory(CarFactory):
+#     def create_engine(self):
+#         return SUVEngine()
+
+#     def create_body(self):
+#         return SUVBody()
+
+#     def create_interior(self):
+#         return SUVInterior()
+
+# class HatchbackFactory(CarFactory):
+#     def create_engine(self):
+#         return HatchbackEngine()
+
+#     def create_body(self):
+#         return HatchbackBody()
+
+#     def create_interior(self):
+#         return HatchbackInterior()
+
+# # Car Class
+# class Car:
+#     def __init__(self, factory):
+#         if not isinstance(factory, CarFactory):
+#             raise TypeError("Invalid factory type. Please provide a valid CarFactory.")
+#         self.engine = factory.create_engine()
+#         self.body = factory.create_body()
+#         self.interior = factory.create_interior()
+
+#     def features(self):
+#         return {
+#             "Engine": self.engine.specifications(),
+#             "Body": self.body.specifications(),
+#             "Interior": self.interior.specifications(),
+#         }
+
+# # Simulation
+# def main():
+#     try:
+#         sedan_factory = SedanFactory()
+#         suv_factory = SUVFactory()
+#         hatchback_factory = HatchbackFactory()
+
+#         # Create Sedan
+#         sedan = Car(sedan_factory)
+#         print("Sedan Features:", sedan.features())
+
+#         # Create SUV
+#         suv = Car(suv_factory)
+#         print("SUV Features:", suv.features())
+
+#         # Create Hatchback
+#         hatchback = Car(hatchback_factory)
+#         print("Hatchback Features:", hatchback.features())
+
+#         # Invalid factory
+#         invalid_factory = "TruckFactory"
+#         car = Car(invalid_factory)  # This will raise an exception
+
+#     except TypeError as e:
+#         print(f"Error: {e}")
+
+# if __name__ == "__main__":
+#     main()
+
+
+
+
+
 # class Button:
 #     def render(self):
 #         pass
@@ -1562,22 +1709,23 @@
 # print(coffee.cost())         # Output: 8
 
 
+
 # UnitTesting
 
-# Unit testing involves testing individual units of a program (e.g., a method or function).
+# Unit testing involves testing individual units of a program (e.g., a method or function or class ).
 # It ensures each piece works in isolation.
+
+# Unit testing is testing individual parts (units) of your code, such as a class or function, to ensure they work correctly
 
 # import unittes
 # class Calculator:
 #     def add(self, a, b):
 #         return a + b
-
 # # Test case
 # class TestCalculator(unittest.TestCase):
 #     def test_add(self):
 #         calc = Calculator()
 #         self.assertEqual(calc.add(2, 3), 5)
-
 # if __name__ == "__main__":
 #     unittest.main()
 
@@ -1585,7 +1733,7 @@
 
 # Pytest
 
-# Pytest is a popular Python library for simple and scalable testing.
+# Pytest is a Python testing framework that makes it easy to write simple and scalable test cases.
 
 # def multiply(a, b):
 #     return a * b
@@ -1596,9 +1744,13 @@
 
 
 # Concurrency
-# Concurrency means executing multiple tasks at the same time. This can be done using threads, multiprocessing, or async I/O.
+
+# Concurrency means executing multiple tasks at the same time to improve efficiency. 
+# This can be done using threads, multiprocessing, or async I/O.
+
 
 # Threads
+
 # Threads allow you to run parts of a program concurrently. They share memory but can execute independently.
 
 # import threading
@@ -1624,30 +1776,33 @@
 
 # Multiprocessing runs tasks in separate processes with independent memory.
 
-# import multiprocessing
-# def task(name):
-#     print(f"Task {name} is running!")
+# from multiprocessing import Process
+# def print_numbers():
+#     for i in range(5):
+#         print(i)
 
-# if __name__ == "__main__":
-#     process1 = multiprocessing.Process(target=task, args=("A",))
-#     process2 = multiprocessing.Process(target=task, args=("B",))
-#     process1.start()
-#     process2.start()
-#     process1.join()
-#     process2.join()
+# process = Process(target=print_numbers)
+# process.start()
+# process.join()
+
+    
     
 # Async I/O
-# Async I/O allows tasks to pause and resume, making it efficient for I/O-bound tasks like reading files or making network requests.
+
+# Async I/O allows tasks to pause and resume, making it efficient for I/O-bound tasks like
+# reading files or making network requests.
+
+# Async I/O enables a program to handle input/output operations 
+# (like reading files or fetching data from the web) without blocking other tasks. 
 
 # import asyncio
-# async def say_hello():
-#     print("Hello!")
-#     await asyncio.sleep(1)
-#     print("Hello again!")
-# async def main():
-#     await asyncio.gather(say_hello(), say_hello())
+# async def fetch_data():
+#     print("Fetching data...")
+#     await asyncio.sleep(2)  # Simulate delay
+#     print("Data fetched")
 
-# asyncio.run(main())
+# asyncio.run(fetch_data())
+
 
                                 
                             
